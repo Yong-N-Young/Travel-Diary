@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState, useCallback} from 'react';
 import {View, FlatList, Button, Platform, Text, StyleSheet} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
@@ -8,6 +9,7 @@ const MainScreen = props => {
     return (
         <View>
             <Text>MainScreen</Text>
+            <StatusBar style="auto" />
         </View>  
     );
 };

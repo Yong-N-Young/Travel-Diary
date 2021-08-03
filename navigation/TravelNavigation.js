@@ -17,6 +17,7 @@ import DetailScreen from '../screens/CardTab/DetailScreen';
 
 //생성 스크린(plus)
 import CreateScreen from '../screens/Create/CreateScreen';
+import CreateDetailScreen from '../screens/Create/CreateDetailScreen';
 
 import MapScreen from '../screens/MapTab/MapScreen';
 
@@ -29,7 +30,9 @@ const MainStack = createStackNavigator({
     Main: MainScreen,
     List: ListScreen,
     Detail: DetailScreen,
-    Create: CreateScreen
+
+    Create: CreateScreen,
+    CreateDetail: CreateDetailScreen
 },
 {
     navigationOptions: {
@@ -170,25 +173,59 @@ const tabScreenConfig = {
         tabBarLabel: Platform.OS === 'android' ? <Text style={{fontFamily: 'open-sans-bold'}}>Favorites!</Text> : 'Favorites!'
     },
 };
-
 //탭
 const MainNavigator = Platform.OS === 'android' 
-    ? createMaterialBottomTabNavigator(tabScreenConfig, { //안드로이드 일때
-        activeTintColor: 'white',
-        shifting: true //애니메이션
-    }) 
-
-    : createBottomTabNavigator(tabScreenConfig, { //ios일때
-        tabBarOptions: {
-            labelStyle: {
-                fontFamily: 'open-sans'
+    ? createMaterialBottomTabNavigator( //안드로이드 일때
+        tabScreenConfig, 
+        {
+            activeTintColor: 'white',
+            shifting: true, //애니메이션
+            navigationOptions: {
+                drawerIcon: drawerConfig => (
+                    <Ionicons 
+                        name={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'} 
+                        size={23}
+                        color={drawerConfig.tintColor}
+                    />
+                )
             },
-            activeTintColor: Colors.accentColor //해당 탭이 떠있을때 컬러
-        }
-    });
+        }) 
+    
+        
+    : createBottomTabNavigator(//ios일때
+        tabScreenConfig, 
+        {
+            tabBarOptions: {
+                labelStyle: {
+                    fontFamily: 'open-sans'
+                },
+                activeTintColor: Colors.accentColor //해당 탭이 떠있을때 컬러
+            },
+            navigationOptions: {
+                drawerIcon: drawerConfig => (
+                    <Ionicons 
+                        name={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'} 
+                        size={23}
+                        color={drawerConfig.tintColor}
+                    />
+                )
+            },
+        });
+    
 
 const OptionStack = createStackNavigator({ 
     Option: OptionScreen,
+},
+{
+    navigationOptions: {
+        drawerIcon: drawerConfig => (
+            <Ionicons 
+                name={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'} 
+                size={23}
+                color={drawerConfig.tintColor}
+            />
+        )
+    },
 });
 
 const Drawer = createDrawerNavigator({
