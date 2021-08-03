@@ -7,10 +7,13 @@ import HeaderButton from '../../components/HeaderButton';
 
 const MainScreen = props => {
     return (
-        <View>
-            <Text>MainScreen</Text>
-            <StatusBar style="auto" />
-        </View>  
+        <FlatList>
+            <View><Text>계획1</Text></View>
+            <View><Text>계획2</Text></View>
+            <View><Text>계획3</Text></View>
+            <View><Text>계획4</Text></View>
+            <View><Text>계획5</Text></View>
+        </FlatList> 
     );
 };
 
