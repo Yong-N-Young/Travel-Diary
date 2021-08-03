@@ -19,9 +19,9 @@ MainScreen.navigationOptions = navData => {
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item 
                     title='Cart' 
-                    iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+                    iconName={Platform.OS === 'android' ? 'md-add' : 'ios-add'}
                     onPress={() => {
-                        navData.navigation.navigate({routeName: 'List'})
+                        navData.navigation.navigate({routeName: 'Create'})
                     }}    
                 />
             </HeaderButtons>

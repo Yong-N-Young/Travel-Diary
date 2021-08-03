@@ -10,9 +10,13 @@ import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
 
+//메인 스크린(Card)
 import MainScreen from '../screens/CardTab/MainScreen';
 import ListScreen from '../screens/CardTab/ListScreen';
 import DetailScreen from '../screens/CardTab/DetailScreen';
+
+//생성 스크린(plus)
+import CreateScreen from '../screens/Create/CreateScreen';
 
 import MapScreen from '../screens/MapTab/MapScreen';
 
@@ -25,6 +29,7 @@ const MainStack = createStackNavigator({
     Main: MainScreen,
     List: ListScreen,
     Detail: DetailScreen,
+    Create: CreateScreen
 },
 {
     navigationOptions: {
