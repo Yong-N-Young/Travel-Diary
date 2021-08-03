@@ -29,11 +29,6 @@ export default function App() {
 
   return (
     <TravelNavigation />
-    
-    <View style={styles.container}>
-      <Text>Yong!!!!!!</Text>
-      <StatusBar style="auto" />
-    </View>
 
   );
 }
