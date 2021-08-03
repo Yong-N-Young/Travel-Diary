@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createStackNavigator} from 'react-navigation-stack'; //stack
+import { createStackNavigator} from 'react-navigation-stack'; //스택
 import { createBottomTabNavigator} from 'react-navigation-tabs'; //아래 탭
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'; //안드로이드만 쓰는거(탭)
 import { createAppContainer } from 'react-navigation'; //이거 이케 해줘야되네 따로
