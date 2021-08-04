@@ -17,4 +17,6 @@ const PLANS = [
     '21.08.06'
   )
 ];
+
+
 export default PLANS;
