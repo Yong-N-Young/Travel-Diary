@@ -1,19 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState, useCallback} from 'react';
-import {View, FlatList, Button, Platform, Text, StyleSheet} from 'react-native';
+import {View, FlatList, Button, Platform, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 
 import HeaderButton from '../../components/HeaderButton';
 
+// // topTabs import
+// import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+
+// dummy-data import
+import PLANS from '../../data/dummy-data';
+
+
+
 const MainScreen = props => {
+    const renderExItem = (itemData) => {
+        return (
+            <TouchableOpacity onPress={() => {
+                props.navigation.navigate({routeName: 'List'})
+            }}>
+                <View style={styles.planCard}>
+                <Text>{itemData.item.where}</Text>
+                <Text>{itemData.item.departure}</Text>
+                <Text>~</Text>
+                <Text>{itemData.item.arrival}</Text>
+                </View>
+            </TouchableOpacity>
+            
+        );
+    };
+
     return (
-        <FlatList>
-            <View><Text>계획1</Text></View>
-            <View><Text>계획2</Text></View>
-            <View><Text>계획3</Text></View>
-            <View><Text>계획4</Text></View>
-            <View><Text>계획5</Text></View>
-        </FlatList> 
+        <FlatList 
+            keyExtractor={(item, index) => item.where}
+            data={PLANS} 
+            renderItem={renderExItem}
+        />
+        
     );
 };
 
@@ -47,7 +70,13 @@ MainScreen.navigationOptions = navData => {
 };
 
 const styles = StyleSheet.create({
-
+    planCard: {
+        margin: 25,
+        padding: 10,
+        backgroundColor: 'lightblue',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'        
+    }
 });
 
 export default MainScreen;
