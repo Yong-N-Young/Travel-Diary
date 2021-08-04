@@ -5,3 +5,5 @@ class Plan {
       this.arrival = arrival;
     }
 }
+
+export default Plan;
